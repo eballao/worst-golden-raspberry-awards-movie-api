@@ -36,7 +36,7 @@ class WorstGoldenRaspberryAwardsMovieApiApplicationTests {
 	
 	@Test
     public void testStatusReturnMethod() throws Exception {
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+//        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
         ResponseEntity<String> response = restTemplate.getForEntity(createURLWithPort("/movies/min-max-interval-between-two-awards"), 
         		String.class);
         assertThat(response.getStatusCodeValue()).isEqualTo(200);
