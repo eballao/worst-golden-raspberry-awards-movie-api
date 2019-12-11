@@ -22,20 +22,6 @@ public class MovieService {
 	@Autowired
 	private MovieRepository repo;
 	
-	public AwardWinningProducerDto longestIntervalBetweenTwoAwards() {
-		List<AwardWinningProducerDto> list = createDtoList();
-		Comparator<AwardWinningProducerDto> comparator = Comparator.comparing(AwardWinningProducerDto::getInterval);
-		AwardWinningProducerDto dto = list.stream().max(comparator).get();
-		return dto;
-	}
-	
-	public AwardWinningProducerDto twoFastestAwards() {
-		List<AwardWinningProducerDto> list = createDtoList();
-		Comparator<AwardWinningProducerDto> comparator = Comparator.comparing(AwardWinningProducerDto::getInterval);
-		AwardWinningProducerDto dto = list.stream().min(comparator).get();
-		return dto;
-	}
-	
 	public IntervalWinnersDto minMaxIntervalBetweenTwoAwards() {
 		List<AwardWinningProducerDto> list = createDtoList();
 		

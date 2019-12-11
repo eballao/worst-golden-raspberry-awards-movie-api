@@ -17,16 +17,6 @@ public class MovieResource {
 	@Autowired
 	private MovieService service;
 	
-	@RequestMapping(value = "/longest-interval-between-two-awards", method=RequestMethod.GET)
-	public ResponseEntity<AwardWinningProducerDto> longestIntervalBetweenTwoAwards() {
-		return ResponseEntity.ok().body(service.longestIntervalBetweenTwoAwards());
-	}
-	
-	@RequestMapping(value = "/two-fastest-awards", method=RequestMethod.GET)
-	public ResponseEntity<AwardWinningProducerDto> twoFastestAwards() {
-		return ResponseEntity.ok().body(service.twoFastestAwards());
-	}
-	
 	@RequestMapping(value = "/min-max-interval-between-two-awards", method=RequestMethod.GET)
 	public ResponseEntity<IntervalWinnersDto> minMaxIntervalBetweenTwoAwards() {
 		return ResponseEntity.ok().body(service.minMaxIntervalBetweenTwoAwards());
