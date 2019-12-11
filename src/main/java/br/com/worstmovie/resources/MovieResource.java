@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.worstmovie.dto.AwardWinningProducerDto;
-import br.com.worstmovie.dto.IntervaloPremiosDto;
+import br.com.worstmovie.dto.IntervalWinnersDto;
 import br.com.worstmovie.service.MovieService;
 
 @RestController
@@ -28,7 +28,7 @@ public class MovieResource {
 	}
 	
 	@RequestMapping(value = "/min-max-interval-between-two-awards", method=RequestMethod.GET)
-	public ResponseEntity<IntervaloPremiosDto> minMaxIntervalBetweenTwoAwards() {
+	public ResponseEntity<IntervalWinnersDto> minMaxIntervalBetweenTwoAwards() {
 		return ResponseEntity.ok().body(service.minMaxIntervalBetweenTwoAwards());
 	}
 }

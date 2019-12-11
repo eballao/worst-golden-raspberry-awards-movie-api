@@ -2,7 +2,7 @@ package br.com.worstmovie.dto;
 
 import java.util.List;
 
-public class IntervaloPremiosDto {
+public class IntervalWinnersDto {
 	
 	private List<AwardWinningProducerDto> min;
 	private List<AwardWinningProducerDto> max;

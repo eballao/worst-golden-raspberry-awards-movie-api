@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.worstmovie.domain.Movie;
 import br.com.worstmovie.dto.AwardWinningProducerDto;
-import br.com.worstmovie.dto.IntervaloPremiosDto;
+import br.com.worstmovie.dto.IntervalWinnersDto;
 import br.com.worstmovie.repository.MovieRepository;
 
 @Service
@@ -36,7 +36,7 @@ public class MovieService {
 		return dto;
 	}
 	
-	public IntervaloPremiosDto minMaxIntervalBetweenTwoAwards() {
+	public IntervalWinnersDto minMaxIntervalBetweenTwoAwards() {
 		List<AwardWinningProducerDto> list = createDtoList();
 		
 		Comparator<AwardWinningProducerDto> comparator = Comparator.comparing(AwardWinningProducerDto::getInterval);
@@ -49,12 +49,12 @@ public class MovieService {
 		listMin.add(dtoMin);
 		listMax.add(dtoMax);
 		
-		IntervaloPremiosDto intervalo = new IntervaloPremiosDto();
+		IntervalWinnersDto interval = new IntervalWinnersDto();
 		
-		intervalo.setMax(listMax);
-		intervalo.setMin(listMin);
+		interval.setMax(listMax);
+		interval.setMin(listMin);
 		
-		return intervalo;
+		return interval;
 	}
 	
 	private List<AwardWinningProducerDto> createDtoList() {

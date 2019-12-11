@@ -1,4 +1,4 @@
-package br.com.worstmovie.resources;
+package br.com.worstmovie.batch;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class LoadResource implements ApplicationRunner {
+public class LoadInitializer implements ApplicationRunner {
 
     @Autowired
     JobLauncher jobLauncher;
