@@ -30,7 +30,7 @@ class WorstGoldenRaspberryAwardsMovieApiApplicationTests {
 	public void testRetrieveMinMaxIntervalBetweenTwoAwards() throws Exception {
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 		ResponseEntity<String> response = restTemplate.exchange(createURLWithPort("/movies/min-max-interval-between-two-awards"), HttpMethod.GET, entity, String.class);
-		String expected = "{\"min\":[{\"producer\":\"Joel Silver\",\"interval\":1,\"previousWin\":1990,\"followingWin\":1991}],\"max\":[{\"producer\":\"Matthew Vaughn\",\"interval\":13,\"previousWin\":2002,\"followingWin\":2015}]}";
+		String expected = "{\"min\":[{\"producer\":\"Joel Silver\",\"interval\":1,\"previousWin\":1990,\"followingWin\":1991}],\"max\":[{\"producer\":\"Matthew Vaughn\",\"interval\":49,\"previousWin\":2015,\"followingWin\":2064}]}";
 		JSONAssert.assertEquals(expected, response.getBody(), false);
 	}
 	

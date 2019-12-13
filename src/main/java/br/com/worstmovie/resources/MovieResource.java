@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.worstmovie.dto.AwardWinningProducerDto;
 import br.com.worstmovie.dto.IntervalWinnersDto;
 import br.com.worstmovie.service.MovieService;
 

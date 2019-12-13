@@ -3,10 +3,8 @@ package br.com.worstmovie.service;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +44,7 @@ public class MovieService {
 	private List<AwardWinningProducerDto> createDtoList() {
 		List<Movie> movies = repo.awardWinningProducers();
 		Map<String, AwardWinningProducerDto> map = new HashMap<>();
+		List<AwardWinningProducerDto> dtos = new ArrayList<>();
 		for(Movie movie: movies) {
 			AwardWinningProducerDto dto = map.get(movie.getProducer());
 			if(dto == null) {
@@ -56,25 +55,13 @@ public class MovieService {
 				dto.setInterval(0);
 			} else {
 				Integer yearMovie = movie.getYear();
-				Integer prevYear = dto.getPreviousWin();
-				Integer follYear = dto.getFollowingWin();
-				if(yearMovie <= prevYear) {
-					dto.setPreviousWin(yearMovie);
-				}
-				if(yearMovie >= follYear) {
-					dto.setFollowingWin(yearMovie);
-				}
+				dto.setPreviousWin(dto.getFollowingWin());
+				dto.setFollowingWin(yearMovie);
 				dto.setInterval(dto.getFollowingWin() - dto.getPreviousWin());
+				dtos.add(dto);
 			}
 			map.put(movie.getProducer(), dto);
 		}
-		List<AwardWinningProducerDto> list = new ArrayList<>();
-		Iterator<Entry<String, AwardWinningProducerDto>> iterator = map.entrySet().iterator();
-	    while (iterator.hasNext()) {
-	        Entry<String, AwardWinningProducerDto> entry = iterator.next();
-	        AwardWinningProducerDto dto = entry.getValue();
-	        if(dto.getInterval() > 0) list.add(dto);
-	    }
-		return list;
+		return dtos;
 	}
 }
