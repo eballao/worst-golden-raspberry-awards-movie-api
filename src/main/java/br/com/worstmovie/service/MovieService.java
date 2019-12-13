@@ -53,14 +53,17 @@ public class MovieService {
 				dto.setPreviousWin(movie.getYear());
 				dto.setFollowingWin(movie.getYear());
 				dto.setInterval(0);
+				map.put(movie.getProducer(), dto);
 			} else {
-				Integer yearMovie = movie.getYear();
-				dto.setPreviousWin(dto.getFollowingWin());
-				dto.setFollowingWin(yearMovie);
-				dto.setInterval(dto.getFollowingWin() - dto.getPreviousWin());
-				dtos.add(dto);
+				AwardWinningProducerDto nextDto = new AwardWinningProducerDto();
+				nextDto.setProducer(movie.getProducer());
+				nextDto.setPreviousWin(dto.getFollowingWin());
+				nextDto.setFollowingWin(movie.getYear());
+				nextDto.setInterval(movie.getYear() - nextDto.getPreviousWin());
+				dtos.add(nextDto);
+				map.put(movie.getProducer(), nextDto);
 			}
-			map.put(movie.getProducer(), dto);
+			
 		}
 		return dtos;
 	}
