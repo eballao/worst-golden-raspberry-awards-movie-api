@@ -9,6 +9,7 @@ Projeto de Teste Raspberry Awards API desenvolvido com Spring Boot 4
 
 3 - Executar o projeto importado através do Spring Boot App. Ao inicializar o projeto os dados do CSV serão importados
 para o banco H2 em memória;
+
 4 - Executar uma chamada através da URL "http://localhost:8080/movies/min-max-interval-between-two-awards";
 
 ### Direcionamento para execução dos testes:
